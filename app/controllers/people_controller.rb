@@ -1,9 +1,8 @@
 class PeopleController < ApplicationController
 
   def index
-  end
-
-  def new
+    @people = Person.all
+    render :json => @people
   end
 
   def create
@@ -14,9 +13,6 @@ class PeopleController < ApplicationController
   end
 
   def show
-  end
-
-  def edit
   end
 
   def update
