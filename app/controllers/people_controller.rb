@@ -3,6 +3,10 @@ class PeopleController < ApplicationController
   def index
     @people = Person.all
     render :json => @people
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def create
@@ -19,6 +23,10 @@ class PeopleController < ApplicationController
   end
 
   def destroy
+    respond_to do |format|
+      format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
 private
